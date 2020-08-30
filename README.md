@@ -1,4 +1,5 @@
 # Alphago
+알고리즘 파괴 고!
 
 ## member
 
