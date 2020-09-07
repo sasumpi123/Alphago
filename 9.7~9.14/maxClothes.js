@@ -1,3 +1,16 @@
+// 테스트 1 〉	통과 (3.48ms, 29.7MB)
+// 테스트 2 〉	통과 (3.71ms, 29.9MB)
+// 테스트 3 〉	통과 (3.76ms, 29.8MB)
+// 테스트 4 〉	통과 (3.85ms, 29.9MB)
+// 테스트 5 〉	통과 (3.76ms, 29.7MB)
+// 테스트 6 〉	통과 (3.18ms, 29.6MB)
+// 테스트 7 〉	통과 (3.77ms, 29.8MB)
+// 테스트 8 〉	통과 (3.73ms, 30MB)
+// 테스트 9 〉	통과 (3.58ms, 30MB)
+// 테스트 10 〉	통과 (3.65ms, 29.7MB)
+// 테스트 11 〉	통과 (3.17ms, 29.7MB)
+// 테스트 12 〉	통과 (3.13ms, 29.6MB)
+
 function solution(n, lost, reserve) {
     var answer = 0;
     let student = new Map();
@@ -32,7 +45,3 @@ function solution(n, lost, reserve) {
     
     return answer;
 }
-
-
-
-solution(5, [3,4], [1,3,5]);
