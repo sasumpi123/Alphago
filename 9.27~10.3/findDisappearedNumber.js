@@ -13,6 +13,5 @@ var findDisappearedNumbers = function (nums) {
       res.push(i + 1);
     }
   }
-
   return res;
 };
