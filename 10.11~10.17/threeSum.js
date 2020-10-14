@@ -1,7 +1,5 @@
-/**
- * @param {number[]} nums
- * @return {number[][]}
- */
+// Runtime     Memory
+// 144 ms,     48.7 MB
 var threeSum = function (nums) {
   const res = [];
   nums.sort(function (a, b) {
