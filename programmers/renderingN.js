@@ -8,9 +8,9 @@
 // 테스트 8 〉	통과 (213.01ms, 37.3MB)
 // 테스트 9 〉	통과 (0.13ms, 30MB)
 
-function solution() {
-  const N = 5;
-  const number = 31168;
+// DP에 대해 숙련도가 매우 부족함
+
+function solution(N, number) {
   const set = new Array(8).fill().map(() => new Set());
 
   for (let i = 0; i < 8; i++) {
