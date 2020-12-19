@@ -1,6 +1,5 @@
 // Runtime: 944 ms, faster than 29.28% of JavaScript online submissions for Container With Most Water.
 // Memory Usage: 41.4 MB, less than 22.71% of JavaScript online submissions for Container With Most Water.
-// Next challenges:
 
 /**
  * @param {number[]} height
