@@ -23,7 +23,7 @@ function solution(input) {
        }
      };
      const queue = [];
-     for (let i = 0; i < input.length; i++) {
+     for (let i = 0; i < input.length; i++) {        
        const command = input[i].split(" ")[0];
        const data = Number(input[i].split(" ")[1]);
        switch (command) {
