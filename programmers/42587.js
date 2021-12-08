@@ -32,9 +32,8 @@ function solution(priorities, location) {
       i++;
       if (location == 0) {
         break;
-      } else {
-        location--;
       }
+      location--;
     } else {
       priorities.push(priorities.shift());
       if (location == 0) {
@@ -44,6 +43,6 @@ function solution(priorities, location) {
       }
     }
   }
-  console.error(i);
+
   return i;
 }
