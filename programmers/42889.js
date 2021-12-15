@@ -29,7 +29,7 @@
 function solution(N, stages) {
   const tempAry = new Array(N - 1);
 
-  stages.sort(function (a, b) {
+  stages.sort((a, b) => {
     return b - a;
   });
 
@@ -47,10 +47,9 @@ function solution(N, stages) {
 
   for (let idx = 0; idx <= N; idx++) {
     if (tempAry[idx] == undefined) {
+      const totalChallenger = tempAry[idx + 1];
       tempAry[idx] = {
-        totalChallenger: tempAry[idx + 1]
-          ? tempAry[idx + 1].totalChallenger
-          : 0,
+        totalChallenger: totalChallenger ? totalChallenger.totalChallenger : 0,
         currentChallenger: 0,
       };
     }
