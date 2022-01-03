@@ -1,3 +1,24 @@
+// 테스트 1 〉	통과 (0.14ms, 30.4MB)
+// 테스트 2 〉	통과 (0.22ms, 30.2MB)
+// 테스트 3 〉	통과 (0.20ms, 30.1MB)
+// 테스트 4 〉	통과 (0.12ms, 30.1MB)
+// 테스트 5 〉	통과 (0.34ms, 30.3MB)
+// 테스트 6 〉	통과 (0.27ms, 30.3MB)
+// 테스트 7 〉	통과 (0.37ms, 30.2MB)
+// 테스트 8 〉	통과 (0.40ms, 30.1MB)
+// 테스트 9 〉	통과 (0.26ms, 30.2MB)
+// 테스트 10 〉	통과 (0.26ms, 30.4MB)
+// 테스트 11 〉	통과 (0.37ms, 30.1MB)
+// 테스트 12 〉	통과 (0.30ms, 30.1MB)
+// 테스트 13 〉	통과 (0.30ms, 30.4MB)
+// 테스트 14 〉	통과 (0.39ms, 30.5MB)
+// 테스트 15 〉	통과 (0.59ms, 30.2MB)
+// 테스트 16 〉	통과 (0.56ms, 30.3MB)
+// 테스트 17 〉	통과 (1.01ms, 30.5MB)
+// 테스트 18 〉	통과 (0.87ms, 30.1MB)
+// 테스트 19 〉	통과 (0.93ms, 30.4MB)
+// 테스트 20 〉	통과 (0.91ms, 30.4MB)
+
 function solution(numbers, hand) {
   var answer = "";
   const leftNum = [1, 4, 7];
@@ -20,54 +41,31 @@ function solution(numbers, hand) {
     if (hand == "left") return "L";
   };
 
-  const getHandCompareDistance = (
-    targetNumIdx,
-    currentLNum,
-    currentRNum,
-    targetNum
-  ) => {
-    let leftIdx = undefined;
-    let rightIdx = undefined;
+  const getHandCompareDistance = (targetNumIdx, currentLNum, currentRNum) => {
+    const leftIdx = [];
+    const rightIdx = [];
+    const centerNumIdx = [targetNumIdx, 1];
     for (let idx = 0; idx < keyPad.length; idx++) {
       if (keyPad[idx].includes(currentLNum)) {
-        leftIdx = idx;
+        leftIdx.push(idx);
+        leftIdx.push(keyPad[idx].indexOf(currentLNum));
       }
       if (keyPad[idx].includes(currentRNum)) {
-        rightIdx = idx;
+        rightIdx.push(idx);
+        rightIdx.push(keyPad[idx].indexOf(currentRNum));
       }
-      if (leftIdx && rightIdx) break;
+      if (leftIdx.length > 0 && rightIdx.length > 0) break;
     }
 
-    console.error(
-      "targetNum: ",
-      targetNum,
-      "targetNumIdx: ",
-      targetNumIdx,
-      "currentLNum: ",
-      currentLNum,
-      "leftIdx: ",
-      leftIdx,
-      "currentRNum: ",
-      currentRNum,
-      "rightIdx: ",
-      rightIdx
-    );
-    if (leftIdx == rightIdx) return getAnswerIfSameLine();
-    else {
-      const leftDistance =
-        targetNumIdx == leftIdx ? 1 : Math.abs(targetNumIdx - leftIdx);
-      const rightDistance =
-        targetNumIdx == rightIdx ? 1 : Math.abs(targetNumIdx - rightIdx);
-
-      console.error(
-        "leftDistance: ",
-        leftDistance,
-        "rightDistance: ",
-        rightDistance
-      );
-      if (leftDistance == rightDistance) return getAnswerIfSameLine();
-      return leftDistance > rightDistance ? "R" : "L";
-    }
+    const leftDistance =
+      Math.abs(centerNumIdx[0] - leftIdx[0]) +
+      Math.abs(centerNumIdx[1] - leftIdx[1]);
+    const rightDistance =
+      Math.abs(centerNumIdx[0] - rightIdx[0]) +
+      Math.abs(centerNumIdx[1] - rightIdx[1]);
+    if (leftDistance == rightDistance) return getAnswerIfSameLine();
+    const isLeftFar = leftDistance > rightDistance;
+    return isLeftFar ? "R" : "L";
   };
 
   const getHandPressCenterNum = (targetNum, currentLNum, currentRNum) => {
@@ -77,22 +75,13 @@ function solution(numbers, hand) {
     return getHandCompareDistance(
       centerNumPadIdx[targetNum],
       currentLNum,
-      currentRNum,
-      targetNum
+      currentRNum
     );
   };
 
-  let leftHandNum;
-  let rightHandNum;
+  let leftHandNum = "*";
+  let rightHandNum = "#";
   for (let idx = 0; idx < numbers.length; idx++) {
-    console.error(
-      "targetNum: ",
-      numbers[idx],
-      "left: ",
-      leftHandNum,
-      "right: ",
-      rightHandNum
-    );
     if (leftNum.includes(numbers[idx])) {
       leftHandNum = numbers[idx];
       answer += "L";
@@ -118,10 +107,5 @@ function solution(numbers, hand) {
     answer += currentHand;
   }
 
-  console.error("13458214595");
-  console.error("LRLLLRLLRRL");
-  console.error(`${answer}`);
   return answer;
 }
-
-solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right");
