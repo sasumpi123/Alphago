@@ -42,8 +42,7 @@ function isValidStr(str) {
       else return false;
     }
   }
-  if (stack.length > 0) return false;
-  else return true;
+  return true;
 }
 
 solution("[](){}");
