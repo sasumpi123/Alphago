@@ -7,18 +7,7 @@
 // 테스트 7 〉	통과 (1.01ms, 32.3MB)
 
 function solution(left, right) {
-  var answer = 0;
-
-  const getDivisorCount = (num) => {
-    let count = 0;
-    for (let i = 1; i <= num; i++) {
-      if (num % i == 0) {
-        count++;
-      }
-    }
-
-    return count;
-  };
+  let answer = 0;
 
   for (let idx = left; idx <= right; idx++) {
     const divisorCount = getDivisorCount(idx);
@@ -26,4 +15,15 @@ function solution(left, right) {
     else answer -= idx;
   }
   return answer;
+}
+
+function getDivisorCount(num) {
+  let count = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num % i == 0) {
+      count++;
+    }
+  }
+
+  return count;
 }
